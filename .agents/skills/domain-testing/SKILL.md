@@ -54,22 +54,25 @@ flowchart TD
 
 Đánh số định danh cho từng lớp: $EC_1, EC_2, EC_3, \dots$ Lập **Bảng tổng hợp Lớp tương đương**.
 
-### Bước 3: Thiết kế Ca Kiểm thử & Áp dụng Nguyên tắc Cô lập Lỗi (Fault Isolation)
-Khi ghép các giá trị đại diện của các biến vào từng ca kiểm thử, **BẮT BUỘC** tuân thủ 2 nguyên tắc vàng:
-
+### Bước 3: Xác định Ca Kiểm thử Sơ bộ & Cô lập Lỗi (Full Preliminary Test Cases Table)
 > [!IMPORTANT]
-> **2 NGUYÊN TẮC VÀNG THIẾT KẾ TEST CASE:**
-> 1. **Phủ Lớp Hợp lệ (Valid ECs)**: Chọn các giá trị sao cho **một ca kiểm thử bao phủ càng nhiều lớp tương đương hợp lệ càng tốt** cho đến khi tất cả các lớp hợp lệ đều được kiểm thử ít nhất một lần. (Mục đích: Tối ưu số lượng test case).
-> 2. **Cô lập Lớp Không hợp lệ (Invalid ECs - Fault Isolation)**: **Tại một thời điểm, một ca kiểm thử CHỈ ĐƯỢC PHỦ ĐÚNG 1 LỚP TƯƠNG ĐƯƠNG KHÔNG HỢP LỆ CỦA 1 BIẾN**. Tất cả các biến còn lại BẮT BUỘC phải lấy giá trị thuộc lớp tương đương hợp lệ! (Mục đích: Nếu test case fail hoặc báo lỗi, ta biết chính xác 100% lỗi do biến không hợp lệ nào gây ra, tránh hiện tượng lỗi của trường này che khuất lỗi của trường khác).
+> **YÊU CẦU BẮT BUỘC Ở BƯỚC 3 (THEO SLIDE 17 BÀI GIẢNG FIT - HCMUS):**
+> 1. **Duyệt đầy đủ toàn bộ 100% các lớp tương đương (Brute-force coverage)**: Phải lập bảng sơ bộ có số dòng bằng đúng tổng số lớp tương đương ($EC_1, EC_2, \dots, EC_n$). Không được gộp dòng sớm hay bỏ sót bất kỳ EC nào ở bước này.
+> 2. **Giá trị cụ thể cho từng cột**: Tuyệt đối **KHÔNG** dùng các từ mô tả chung chung như *"Giá trị hợp lệ 1"*, *"Giá trị hợp lệ 2"*. Phải điền **giá trị dữ liệu thực tế** (số cụ thể, chuỗi cụ thể) cho mọi biến.
+> 3. **Nguyên tắc Cô lập lỗi (Single Fault Assumption)**:
+>    - Khi dòng đó kiểm tra một lớp tương đương không hợp lệ ($EC_{invalid}$) của biến $X$, biến $X$ nhận giá trị đại diện của $EC_{invalid}$.
+>    - **TẤT CẢ các biến còn lại BẮT BUỘC nhận giá trị đại diện HỢP LỆ CỤ THỂ** đã chọn ở Bước 2.
+>    - Điều này đảm bảo nếu ca kiểm thử thất bại, ta khẳng định chính xác 100% nguyên nhân do biến $X$ gây ra, không bị che khuất lỗi.
+> 4. **Xác định kết quả mong đợi cụ thể**: Ghi rõ mã HTTP, thông báo lỗi hoặc dữ liệu phản hồi tương ứng cho từng dòng.
 
-### Bước 4: Rút gọn Ca kiểm thử & Hoàn thiện Bảng Test Cases
-1. Lập bảng kiểm thử tổng thể đầy đủ.
-2. Kiểm tra các test case hợp lệ bị trùng lặp input hoặc hành vi để gộp lại thành **Bảng rút gọn các ca kiểm thử** (như Slide 18 của bài giảng).
-3. Mỗi ca kiểm thử hoàn chỉnh phải có:
+### Bước 4: Rút gọn Ca kiểm thử & Lập Bảng Đặc tả Chi tiết (Test Reduction)
+1. **Phân tích trùng lặp**: Xác định các dòng kiểm thử lớp hợp lệ ở Bước 3 có cùng toàn bộ giá trị input và cùng kết quả mong đợi.
+2. **Gộp ca kiểm thử hợp lệ (Slide 18 bài giảng)**: Gom các dòng trùng lặp thành **1 Ca kiểm thử hợp lệ tổng hợp duy nhất** bao phủ đồng thời tất cả các lớp tương đương hợp lệ đó.
+3. **Giữ nguyên ca kiểm thử không hợp lệ**: Mỗi ca kiểm thử không hợp lệ độc lập vẫn được giữ nguyên một dòng riêng để bảo toàn khả năng cô lập lỗi.
+4. **Bảng đặc tả hoàn chỉnh**: Trình bày rõ:
    - **Test Case ID** (VD: `DT_FR09_TC01`)
-   - **Tên/Mô tả Mục đích** (Test Objective)
-   - **Lớp tương đương được bao phủ** (Covered ECs: VD `EC1, EC5, EC8`)
-   - **Dữ liệu đầu vào chi tiết** (Test Inputs)
+   - **Lớp tương đương được bao phủ** (Covered ECs: VD `EC01, EC05, EC07, EC09, EC11, EC13, EC15`)
+   - **Dữ liệu đầu vào chi tiết** (Concrete inputs)
    - **Kết quả mong đợi** (Expected Output: HTTP Status, UI message, DB update)
    - **Tiền điều kiện & Các bước thực hiện** (Preconditions & Test Steps)
 

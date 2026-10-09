@@ -88,3 +88,15 @@ classDiagram
 | **Tiền tệ (Currency)** | Ngưỡng coupon $\ge 300,000$ ₫ | $LB = 300,000$ | $299,999; 300,000; 300,001$ | $UB = \text{max\_cart}$ | Giới hạn đơn hàng |
 | **Bộ đếm (Counter)** | Số lần login sai trước khi khóa (3 lần) | $LB = 1$ | $0, 1, 2$ | $UB = 3$ | $2, 3, 4$ |
 | **Thời gian (Timestamp / Date)** | Hạn dùng mã `expired_at` | Ngày tạo | - | `expired_at` | Trước 1s, Đúng mốc, Sau 1s |
+
+---
+
+## 4. Quy tắc Lập Bảng Kiểm thử Biên Toàn diện (Slide 26 FIT - HCMUS)
+
+Trong giảng dạy và thực hành:
+- **Liệt kê đầy đủ 100% ca kiểm thử biên (Brute-force list)**: Không tóm tắt bằng công thức hay nói vắn tắt. Mỗi dòng kiểm tra một điểm biên cụ thể của một biến.
+- **Giá trị cụ thể cho tất cả các biến**:
+  - Biến được kiểm tra nhận giá trị số biên chính xác ($LB - \epsilon, LB, LB + \epsilon, \dots$).
+  - Tất cả các biến khác trong cùng dòng **bắt buộc mang giá trị danh nghĩa cụ thể ($Nom$)**.
+  - Output mong đợi được tính toán cụ thể cho từng bộ giá trị đó.
+- Cách trình bày này giúp giảng viên và kiểm thử viên kiểm chứng ngay lập tức tính đúng đắn của ca kiểm thử và đối chiếu trực tiếp với mã nguồn khi debug.

@@ -65,3 +65,17 @@ Sau khi lập bảng phân hoạch tương đương, bước ghép các biến v
   - Nếu trong một ca kiểm thử ta đưa vào cùng lúc 2 giá trị không hợp lệ (ví dụ: email sai định dạng AND mật khẩu dưới 8 ký tự), khi hệ thống báo lỗi:
     1. Kiểm thử viên không thể xác định lỗi hiển thị là do email hay do mật khẩu gây ra.
     2. Nếu hệ thống validate tuần tự và dừng ngay ở lỗi đầu tiên (fail-fast), đoạn mã kiểm tra lỗi thứ hai sẽ bị che khuất (masking fault), dẫn đến việc bỏ sót bug nghiêm trọng ở trường thứ hai.
+
+---
+
+## 4. Quy trình Lập Bảng 2 Pha Chuẩn Mực FIT - HCMUS
+
+Theo cấu trúc bài giảng của Bộ môn Công nghệ Phần mềm:
+- **Pha 1 - Bảng Tổng hợp Ca kiểm thử Sơ bộ (Slide 17)**:
+  - Bắt buộc phải **duyệt tuần tự từng lớp tương đương một (từ $EC_1$ đến $EC_n$) theo kiểu brute-force**.
+  - Không được gộp bất kỳ dòng nào ở pha này.
+  - Mỗi dòng ghi rõ giá trị cụ thể của biến đang test và các giá trị hợp lệ cụ thể của các biến khác.
+- **Pha 2 - Bảng Rút gọn các Ca kiểm thử (Slide 18)**:
+  - Tiến hành phân tích gộp: Tìm các dòng hợp lệ có cùng bộ giá trị đầu vào và kết quả đầu ra mong đợi để gộp lại thành 1 ca kiểm thử duy nhất (phủ đồng thời nhiều Valid ECs).
+  - Giữ nguyên các dòng không hợp lệ để đảm bảo nguyên tắc cô lập lỗi.
+  - Kết quả là tập ca kiểm thử tối thiểu nhưng đạt 100% độ phủ lớp tương đương.

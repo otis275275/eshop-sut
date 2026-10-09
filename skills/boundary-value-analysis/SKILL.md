@@ -69,19 +69,19 @@ flowchart TD
   - Số thực / Tỷ lệ phần trăm: $\epsilon = 0.01$ hoặc $\epsilon = 1$.
   - Ngày tháng: $\epsilon = 1 \text{ ngày}$.
 
-### Bước 3: Lập Bảng Tập Điểm Biên cho Từng Biến
-Lập bảng liệt kê các giá trị biên cần kiểm thử cho từng biến:
-- Giá trị biên dưới: $LB - \epsilon$ (Invalid), $LB$ (Valid), $LB + \epsilon$ (Valid).
-- Giá trị biên trên: $UB - \epsilon$ (Valid), $UB$ (Valid), $UB + \epsilon$ (Invalid).
-- Giá trị định danh hợp lệ (Nominal value - nằm an toàn ở giữa miền).
+### Bước 3: Lập Bảng Tập Điểm Biên Cụ Thể cho Từng Biến
+Lập bảng liệt kê các giá trị biên cần kiểm thử cho từng biến, **điền số thực tế cụ thể**:
+- Điểm quanh biên dưới: $LB - \epsilon$ (Invalid), $LB$ (Valid), $LB + \epsilon$ (Valid).
+- Giá trị danh nghĩa ($Nom$): nằm an toàn ở giữa miền hợp lệ.
+- Điểm quanh biên trên: $UB - \epsilon$ (Valid), $UB$ (Valid), $UB + \epsilon$ (Invalid).
 
-### Bước 4: Thiết kế Ca Kiểm thử Biên (Fault Isolation & Test Matrix)
-- **Nguyên tắc cô lập lỗi**: Khi kiểm thử giá trị biên của một biến $X$, **tất cả các biến còn lại BẮT BUỘC phải giữ ở giá trị Nominal hợp lệ**.
-- Với mỗi test case, chỉ định rõ:
-  - **TC ID**: `BVA_<Feature>_TCxx`
-  - **Biến đang kiểm tra biên**: Tên biến và loại điểm biên ($LB, LB-1, \dots$).
-  - **Inputs đầy đủ**: Giá trị biên của biến đang xét + Giá trị Nominal của các biến khác.
-  - **Kết quả mong đợi (Expected Output)**: Hệ thống phải chấp nhận hay trả về mã lỗi cụ thể nào.
+### Bước 4: Thiết kế Bảng Ca Kiểm thử Biên Toàn diện (Full Brute-force BVA Table)
+> [!IMPORTANT]
+> **YÊU CẦU BẮT BUỘC Ở BƯỚC 4 (THEO SLIDE 26 BÀI GIẢNG FIT - HCMUS):**
+> 1. **Bảng duyệt toàn diện (Brute-force coverage)**: Phải lập bảng kiểm thử chi tiết bao phủ toàn bộ các điểm biên đã xác định (theo mô hình Standard $4n+1$, Robustness $6n+1$ hoặc 3-point cho từng biến). Không được tóm tắt hay lược bỏ dòng.
+> 2. **Giá trị số thực tế cho từng cột**: Tuyệt đối **KHÔNG** dùng placeholder trừu tượng (như `nom1`, `lb1`). Toàn bộ các cột input phải ghi **số thực tế cụ thể** (ví dụ: `total_amount = 300,000`, `quantity = 1`).
+> 3. **Nguyên tắc Cô lập biên (Single Fault Assumption)**: Khi một biến đang nhận giá trị biên cần kiểm tra, **TẤT CẢ các biến còn lại BẮT BUỘC nhận giá trị danh nghĩa cụ thể ($Nom$)**.
+> 4. **Ghi rõ Output mong đợi cụ thể**: Mã HTTP, thông báo lỗi hoặc dữ liệu tính toán trả về tương ứng.
 
 ---
 
