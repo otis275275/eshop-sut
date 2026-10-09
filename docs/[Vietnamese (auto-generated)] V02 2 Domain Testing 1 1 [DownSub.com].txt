@@ -1,0 +1,467 @@
+[âm nhạc]
+Xin chào các bạn chào mừng các bạn đến
+với môn học kiểm thử phần mềm tôi là
+Trần Thị Binh Hạnh giảng viên khoa công
+nghệ thông tin trường Đại học Khoa học
+Tự nhiên Đại học Quốc gia thành phố Hồ
+Chí Minh trong bài này chúng ta sẽ tìm
+hiểu về domain testing một trong những
+phương pháp thiết kế kiểm thử phần
+mềm domain testing là một phương pháp
+trong kiểm thử phần mềm mà trong đó chú
+trọng vào việc kiểm thử diển trị đầu vào
+từ các miền hay phạm vi cụ thể miền ở
+đây là tập hợp các giá trị đầu vào có ý
+nghĩa Chung hoặc thuộc cùng một loại mục
+tiêu của domain testing là đảm bảo rằng
+phần mềm hoạt động đúng đắn và ổn định
+trong phản vi cụ thể của dữ liệu đầu vào
+quá trình thực hiện domain testing bao
+gồm việc chia miền dữ liệu thành các
+miền con thường được gọi là các lớp
+tương đương và sau đó chọn một số trường
+hợp kiểm thử từ mỗi lớp tương đương để
+kiểm thử bằng cách này chúng ta có thể
+giảm số lượng trường hợp kiểm thử cần
+thiết mà vẫn đảm bảo độ phủ đầy đủ của
+miền dữ liệu domain testing thường được
+kết hợp các kỹ thuật như equivalent
+partitioning phân loại tương đương và
+binary value analysis Phân tích giá trị
+Biên để tố ư hóa quá trình kiểm thử và
+tăng cường khả năng phát hiện
+lỗi trong hướng tiếp cận thực hiện
+domain testing sẽ bao gồm bốn bước bước
+một xác định biến đầu vào và đầu ra của
+đối tượng cần tiểm thử bước hai xác định
+các miền dữ liệu cho tình biến đầu vào
+và đầu ra khi xác định miền giá trị cho
+từng biến chúng ta sẽ chia miền dữ liệu
+thành các miền con thường được gọi là
+lớp tương đương sau đó ở bước ba chúng
+ta sẽ chọn một trường hợp kiểm thử từ
+mỗi lớp tương đương để thực hiện thử
+nghiệm sau cùng ở bước bốn đối với các
+miền giá trị số rời rẹt chúng ta sẽ lựa
+chọn thêm các giá trị Biên để thực hiện
+kiểm
+thử
+để hiểu rõ hơn về cách áp dụng phương
+pháp domain testing để thiết kế kiểm thử
+chúng ta sẽ xét ví dụ đơn giản sau giả
+sử ở đây chúng ta cần kiểm thử một
+chương trình tính tổng hai số chương
+trình có đặt Tả cụ thể như sau chương
+trình được thiết kế tới tổng hai số do
+người dùng nhập vào mỗi số nhập vào là
+số có một hoặc hai chữ số hình bên phải
+Minh hại giao diện của chương trình ở
+đây ta có thể thấy chương trình tính
+tổng hai số có giao diện cần số khi chạy
+chương trình đầu tiên giao diện sẽ hiển
+thị dấu chấm hỏi và đợi người dùng nhập
+liệu số thứ nhất và số thứ hai sau đó
+chương trình sẽ kết xuất kết quả tổng
+hai số mà người dùng nhập vào lên màn
+hình đồng thời cho phép người dùng tiếp
+tục nhập hai số khác để thực hiện việc
+tính
+toán ở bước 1 của phương pháp domain
+testing chúng ta sẽ dựa vào đặc tả của
+chương trình xác định những cái biến đầu
+vào và đầu ra trong bài Ví dụ này chúng
+ta sẽ thấy đầu vào của chúng ta là hai
+số ở đây tôi gọi là a và b và đầu ra của
+chúng ta sẽ có hai tình huống một là đối
+với hai số người dùng nhập vào hợp lệ và
+chương trình sẽ kết xuất ra tổng của hai
+số trong trường hợp ngoại lệ có vấn đề
+gì xảy ra thì chương trình sẽ phải thận
+Thiện thức thông báo
+lỗi
+sau khi đã xác định được các biến đầu
+vào và đầu ra ở bước hai chúng ta sẽ xác
+định các miền giá trị hay các lớp tương
+đương cho các biến mà mình đã dịch định
+ở bước một trong ngữ cảnh của kiểm thử
+phần mềm thuật ngữ miền giá trị thường
+dùng để mô tả tất cả các giá trị có thể
+được sử dụng Hoặc có thể xuất hiện trong
+một biến hoặc một thuộc tính cụ thể điều
+này bao gồm cả giá trị hợp lệ và giá trị
+không hợp lề miền giá trị có thể được
+chia thành nhiều miền con hay còn gọi là
+lớp tương đương
+trong đó hai trường hợp kiểm thử có thể
+được xem thuộc cùng một miền tương đương
+nếu như kết quả mong muốn của chúng là
+giống nhau khái niệm giống nhau ở đây
+không nhất thiết là bằng nhau mà có thể
+là hành vi hoặc cách cư thức xử lý của
+chương trình khi xử lý giá trị đầu vào
+của môi trường hai trường hợp là như
+nhau ý tưởng chính của việc sử dụng lớp
+tương đương là giả sử rằng nếu một giá
+trị từ một lớp tương đương đã được kiểm
+thử và hoạt động đúng đắng thì các giá
+trị khác trong cùng lớp tương đương đó
+cũng có khả năng hoạt động đúng đắn ví
+dụ trong bài toán tính tổng hai số ta
+xét hai trường hợp kiểm thử sau 1 cộng 2
+có giá trị mong muốn tổng hai số là 3 và
+3 + 4 có giá trị mong muốn tổng hai số
+là 7 ở đây chúng ta có thể thấy 1 2 3 4
+giá trị đầu vào của cả hai trường hợp
+kiểm thử đều là các số nguyên có một chữ
+số Đồng thời các kết quả mong muốn của
+chúng ta khi tính tổng của của hai
+trường hợp đó là 3 và 7 cũng là số
+nguyên có một chữ số à Như vậy khi
+chương trình nhận vào hai số nguyên có c
+một chữ số thì cái việc tính toán xử lý
+trong hai trường hợp đó là hoàn toàn như
+nhau Do đó cho dù 3 Tổng 3 và 7 không
+giống nhau Nhưng xét về mặt xử lý của
+chương trình là tương đương như vậy khi
+thực hiện kiểm thử với lớp tương đương
+chúng ta chỉ cần chọn một số trường hợp
+kiểm thử đại diện từ mỗi lớp thay vì
+kiểm thử tất cả các giá trị đầu vào có
+thể điều này sẽ giúp giảm số lượng
+trường hợp khiểm thử cần thiết mà vẫn
+giữ được mức độ khiểm thử đầy
+đủ Vậy làm thế nào để xác định được các
+lớp tương đương Thông thường chúng ta sẽ
+xác định lớp tương đương giữa trên đặc
+tả các điều kiện của giá trị đầu vào và
+đầu ra lưu ý rằng trong bất kỳ trường
+hợp nào một biến luôn luôn có ít nhất
+hai lớp tương đương lớp tương đương hợp
+lệ và lớp tương đương không hợp lệ lớp
+tương đương hợp lệ là một nhóm các giá
+trị đầu vào mà phần mềm hoặc hệ thống
+được kỳ vọng xử lý một cách chính xác và
+mong đợi mục tiêu kiểm Thử Đảm bảo rằng
+phần mềm xử lý đúng đắn các giá trị hp
+thuộc lớp tương đương hợp
+lệ ngược lại lớp tương đương không hợp
+lệ là một nhóm các giá trị đầu vào không
+phù hợp không hợp lý hoặc không đáp ứng
+các yêu cầu hoặc các điều kiện của phần
+mềm hoặc hệ thống mục tiêu kiểm thử là
+nhằm phát hiện các và xác nhận rằng phần
+mềm xử lý đúng đắng khi có giá trị thuộc
+lớp tương đương không hợp lệ tức là có
+khả kh năng xảy ra lỗi hoặc hành vi
+không mong muốn ví dụ trong bài toán
+tính tổng hai số chúng ta có các điều
+kiện đầu vào và đầu ra như sau điều kiện
+thứ nhất là số có một tới hai chữ
+số lớp tương đương hợp lệ có thể bao gồm
+các giá trị từ -99 cho tới
+99 lớp tương đương không hợp lệ có thể
+bao gồm các giá trị nhỏ hơn -99 và các
+giá trị dương lớn lớn hơn 99 vì chúng
+không đáp ứng yêu cầu của ứng dụng đối
+với điều kiện là số thì chúng ta đẽ xác
+định được hai miền hai lớp tương đương
+lớp tương đương hợp lệ là số và lớp
+tương đương không hợp lệ là không phải
+là số đối với output chúng ta cũng tương
+tự sẽ xác định được hai lớp tương đương
+lớp tương đương hợp lệ là tổng của hai
+số do người dùng nhập vào và lớp tương
+đương không hợp lệ là thông báo
+lỗi lưu ý ở đây quá trình xác định các
+lớp tương đương được coi là quá trình
+theo phương pháp horis vì nó liên quan
+đến việc sử dụng các phương pháp giữa
+trên kinh nghiệm thay vì sử dụng các
+phương pháp chính thức mặc hình thức quá
+trình xác định các lớp tương đương
+thường dựa trên kinh nghiệm và hiểu biết
+của người kiểm thử hoặc chuyên gia ngành
+người kiểm thử sử dụng kiến thức của họ
+về yêu cầu chức năng và các biến thể có
+thể có xảy ra giữa trên kinh nghiệm
+trước
+đó như vậy sau khi chúng ta xác định
+được các biến đầu vào và đầu ra cũng như
+các lớp tương đươ của các biến và chúng
+ta sẽ lập được một bản đầy đủ các lớp
+tương
+đương ở đây trong bài toán tính tổng hai
+số chúng ta sẽ TNG có tổng cộng là 10
+lớp tương đương tương ứng với các lớp
+tương đương của biến A biến B và biến
+output sau khi đã xác định được bản đầy
+đủ các lớp tương đương cho các B đầu vào
+và đầu ra ở bước ba chúng ta sẽ lựa chọn
+các giá trị đại diện từ các lớp tương
+đương để tạo thành các trường hợp kiểm
+thử nguyên tắc để lựa chọn giá trị đại
+diện kiểm thử như sau đối với các lớp
+hợp lệ chúng ta sẽ chọn các giá trị sao
+cho một trường hợp kiểm thử bao phủ càng
+nhiều lớp tương đương hợp lệ càng tốt
+cho đến khi bao phủ tất cả các lớp hợp
+lệ đối với các lớp không hợp lệ chúng ta
+sẽ chọn các giá trị sao cho mỗi trường
+hợp kiểm thử chỉ bao phủ một miền không
+hợp lệ cho đến khi bao phủ phụ tất cả
+các lớp không hợp lệ Cách chọn ở đây cho
+thấy khả năng cô lập lỗi nghĩa là tại
+một trường hợp kiểm thử chúng ta chỉ cho
+phép có một trường hợp không hợp lệ để
+bảo đảm rằng nếu chương trình xử lý
+không đúng đắn chúng ta dễ dàng xác định
+được lỗi là do miền giá trị không hợp lệ
+nào gây
+ra quay trở lại bài toán tính tổng hai
+số chúng ta có hai input và một output
+và xác định được 10 lớp tương đương cho
+các input và output đó ứng với mỗi lớp
+tương đương ta sẽ chọn giá trị đại diện
+cho biến thuộc lớp tương đương đang xét
+còn các biến khác mặc định sẽ chọn giá
+trị trong miền hợp lệ của nó ví dụ ở lớp
+tương đương ec1 chúng ta đang xét miền
+giá trị của biến input A có Miền từ -99
+tới 99 do đó ta chọn giá trị 10 nằm
+trong miền -99 đến 99 cho biến a còn
+biến B ta sẽ chọn giá trị trong miền hợp
+lệ của nó ở đây biến B miền hợp lệ của
+giá trị hợp lệ của b là -99 cho tới 99
+và chúng ta sẽ chọn giá trị giả ví dụ là
+9 tương tự như vậy ở các miền ec2 cho
+đến ec4 Ta sẽ chọn giá trị đại diện cho
+biến a thuộc miền đang xét còn biến b sẽ
+luôn luôn chọn giá trị cho miền hợp lệ
+của
+nó lần lượt xác định như vậy cho đến hết
+bảng chúng ta sẽ có được một bản đầy đủ
+các trường hợp kiểm thử bao phủ tất cả
+các miền tương đương
+Sau khi thực hiện hoàn tất việc bao phủ
+tất cả các lớp tương đương thì chúng ta
+sẽ nhận thấy rằng có một số trường
+hợp là hoàn toàn giống nhau Ví dụ như
+ec1
+ec5 và ec9 các biến input đầu vào là 10
+và expected output là 19 ba cái trường
+hợp này là hoàn toàn như nhau Do đó
+chúng ta có thể rút gọn lại ở cái
+bảng thành một cái bản rút gọn các
+trường hợp kiểm
+thử các đối với các miền ec1 ec5 và ec9
+chúng ta sẽ gom lại thành một trường hợp
+và cuối cùng sau khi rút gọn chúng ta sẽ
+có được một cái bảng rút gọn các trường
+hợp kiểm thử và ở đây chúng ta sẽ có
+tổng cộng là bảy trường hợp
+Bước 4 Phân tích giá trị Biên đối với
+các miền giá trị số liên tục r rời rèn
+chúng ta có thể áp dụng thêm kỹ thuật
+phân tích giá trị Biên để xác định thêm
+các trường hợp kiểm
+thử Kỹ thuật này sẽ được áp dụng tập
+trung và kiểm thử các giá trị biên của
+các miền dữ liệu mục tiêu là tìm kiếm
+các lỗi thường xuất hiện tại các răng
+giới của miền giá trị nơi mà thường có
+sự không chắc chắn và lỗi phổ biến chúng
+ta sẽ xem xé xét ví dụ sau đây để thấy
+Tại sao chương trình thường có lỗ ởi
+biên và lợi ích của việc sử dụng giá trị
+Biên để kiểm thử ví dụ chương trình cho
+phép người dùng nhập vào một số input
+tùy giá trị vào giá trị đầu vào input
+chương trình sẽ kết xuất các thông báo
+khác nhau cụ thể nếu input nhỏ hơn 10 sẽ
+xuất thông báo lỗi nếu input từ 10 đến
+nhỏ hơn 25 sẽ xuất ra chữ Hello Còn nếu
+như input lớn hơn hoặc bằng 25 thì sẽ
+xuất ra thông báo lỗi giả định ở đây có
+thể có hai loại lỗi sau một lập trình
+viên viết sai điều kiện So sánh Ví dụ ở
+đây là kiểm tra input lập trình viên
+viết là nhỏ hơn hoặc bằng 25 thay vì nhỏ
+hơn
+25 trường hợp hai lỗi là lập trình viên
+viết sai giá trị bên ví dụ lập trình
+viên viết là input nhỏ hơn 52 thay vì 25
+Thế thì nếu như chúng ta lấy giá trị
+biên là 25 để kiểm thử input là 25 thì
+theo đặt tả của chương trình expected
+output của chúng ta sẽ là error message
+Xét Lỗi Thứ nhất nếu như lập trình viên
+viết sai điều kiện So sánh khi chúng ta
+đưa vào input bằng 25 thì chương trình
+sẽ xuất ra chữ Hello khác với cái kết
+quả mong muốn của chúng ta là error
+message do đó trường hợp này giá trị
+Biên 25 có thể giúp chúng ta phát hiện
+ra lỗi và viết sai điều kiện So sánh
+tương tự nếu như lập trình viên xác định
+sai pên là 52 thay vì 25 thì với trường
+hợp kiểm thử input bằng 25 và chương
+trình sẽ xất ra chữ Hello khác với cái
+kết quả mong muốn là error message nên
+trường hợp này với giá trị pin 25 chúng
+ta cũng sẽ có thể phát hiện được lỗi giá
+trị sai pin như vậy chỉ cần kiểm tra giá
+trị biên là 25 chúng ta có thể dễ dàng
+phát hiện được cả hai lỗi Ngược lại nếu
+như chúng ta chọn giá trị không phải là
+b Ví dụ như chọn giá trị 53 để kiểm tra
+thì trường hợp 1 input bằng 53 thì
+expected output của chúng ta sẽ là error
+message và cái kết quả thực tế trong cả
+hai trường hợp nếu như lập trình biên
+mắt lỗi là sai điều kiện So sánh hay là
+sai giá trị biên thì cũng chương trình
+cũng đều ra đưa ra cái kết quả là error
+message và giống như cái kết quả mà
+chúng ta mong đợi Do đó giá trị bằng
+input bằng 53 không thể giúp cho chúng
+ta phát hiện được lỗi trong hai trường
+hợp
+trên
+như vậy Làm thế nào để xác định giá trị
+biên theo định nghĩa giá trị Biên hợp lệ
+là giá trị nhỏ nhất hoặc lớn nhất mà
+chương trình có thể chấp nhận thế thì có
+hai phương pháp để xác định giá trị Biên
+một là two Point boundary values và hai
+là three Point pary values Trong phương
+pháp two Point pary values và chúng ta
+sẽ xác định hai giá trị bên một là giá
+trị Biên hợp lệ và một là giá trị trên
+hoặc dưới giá trị Biên chúng ta chỉ chọn
+một 1 tr giá trị trên hoặc là dưới th
+thì tùy thuộc vào cái giá trị Biên hợp
+lệ Nếu giá trị Biên hợp lệ là giá trị
+nhỏ nhất b nhỏ nhất thì chúng ta sẽ chọn
+cái giá trị thứ hai là giá trị dưới giá
+trị nhỏ nhất b nhỏ nhất nếu như giá trị
+biên là giá trị Biên lớn nhất thì chúng
+ta sẽ chọn giá trị thứ hai là giá trị
+vừa kế trên lớn hơn cái giá trị trị Biên
+lớn
+nhất Cách thứ hai là tre values trong
+cách này thì sẽ đơn giản hơn chúng chúng
+ta chỉ cần xác định giá trị Biên hợp lệ
+và sau đó không cần biết giá trị biên
+của mình là lớn nhất hay nhỏ nhất mà
+chúng ta sẽ chọn tiếp tục hai giá trị
+trên và dưới kề với
+bên như vậy quay trở lại bài toán tính
+tổng hai số chúng ta dễ dàng xác định
+được hai giá trị Biên hợp lệ cho Ừ biến
+A và B ở đây mình biết là giá trị miền
+giá trị hợp lệ của A là từ -99 cho tới
+99 như vậy thì nó sẽ a sẽ có hai giá trị
+Biên hợp lệ là -99 và
+99 Áp dụng cái phương pháp là tre bary
+value và chúng ta sẽ lấy -99 + -1 và
+chúng ta sẽ có các giá trị kế tiếp là -1
+và
+-998 cũng tương tự như vậy đối với số
+Biên 99 chúng ta sẽ lấy B 99+ -1 chúng
+ta sẽ có là 98 và 100 như vậy để áp dụng
+cái phương pháp giá trị B đối với biến A
+chúng ta sẽ có sáu trường hợp để kiểm
+thử tương tự đối với biến B chúng ta
+cũng sẽ có sáu trường hợp trong trường
+hợp trong đối với việc xác định giá trị
+b thì sau khi chúng ta xác định được giá
+trị Biên để kiểm thử cho một biến thì
+đối với các biến còn lại cũng tương tự
+theo quy tắc là cô lập lỗi chúng ta sẽ
+chọn cái giá trị trong miền hợp lệ của
+đó ví dụ khi mình xét cái giá trị biên
+của biến A là - 100 thì B chúng ta sẽ
+lấy trong giá trị hợp lệ của nó là
+ch tương tự chúng ta sẽ xác định được
+hết đầy đủ một cái bản kiểm tra giá trị
+pin bao gồm là 12 trường hợp kiểm tra
+đối với từng giá trị V input và output
+chúng ta sẽ xác định cái expected output
+tương
+ứng bóm tắt lại đối với phương pháp
+domain testing chúng ta sẽ có hai kỹ
+thuật chính để xác định các trường hợp
+kiểm thử một là equivalent partitioning
+phân hoạch tương đương và bar valis Phân
+tích giá trị Biên với mỗi miền tương
+đương hay lớp tương đương chúng ta đ đặc
+biệt là đối với lớp tương đương có miền
+giá trị là số liên tục thì chúng ta sẽ
+có tối đa được xác định được chính cái
+trường hợp để kiểm thử Ví dụ như trong
+trường hợp số a có miền giá trị từ -99
+tới 99 thì xc định theo phân hoạch tương
+đương chúng ta sẽ xác định lấy cái giá
+trị trong miền đại diện đó là số giả sử
+như là giá trị số 10 ha nằm trong miền
+tươ đương từ -99 tới 99 Áp dụng cái
+phương pháp là bar value analysis thì
+chúng ta sẽ xác định các biên như là 99
+và -99 đồng thời theo phương pháp trip
+bary chúng ta sẽ lấy thêm được hai cái
+giá trị kề biên là
+-998 - 100 và âm và 98 và 100 thì chúng
+ta sẽ có một giá trị nằm trong miền
+tương đương và sáu giá trị nằm trên giá
+trị B ngoài ra đối với cái giá trị số
+liên tục thì chúng ta ngoài bảy giá trị
+đó thì chúng ta còn có thể xác định thêm
+hai trường hợp là cái trường hợp giá trị
+nhỏ nhất và giá trị lớn nhất mà cái cái
+cái dữ liệu số mà cái ứng dụng có thể
+cho phép người dùng dập liệu Ví dụ như
+đối với số nguyên thì số nhỏ nhất của số
+nguyên có thể là max in số nhỏ nhất là
+Min in in min value hoặc là số lớn nhất
+của số nguyên là max
+value Phân tích ưu điểm và khuyết điểm
+của phương pháp domain testing chúng ta
+dễ dàng nhận thấy ở phương pháp domain
+testing Chúng sẽ giúp chúng ta tìm lỗi
+với hiệu suất cao chỉ cần một lượng nhỏ
+các trường hợp kiểm thử tập trung vào
+các giá trị đầu và quan trọng và có thể
+khả ngă gây ra lỗi ở phương pháp này có
+tính rõ ràng và dễ hiểu việc phân chiên
+miền giá trị thành các lớp tương đương
+và chọn các giá trị kiểm thử từ mỗi lớp
+là một quy trình đơn giản giúp việc
+giảng dạy và hiểu rõ phương pháp trở nên
+dễ dàng dễ học và dễ áp dụng phương pháp
+này cũng có khả năng mở rộng tốt khi cần
+kiểm thử với nhiều biến Tuy nhiên khuyết
+điểm của phương pháp domain testing là
+mặc dù hiệu quả nhưng phương pháp này
+không đảm bảo phát hiện mọi lỗi có thể
+có những trường hợp đặc biệt không được
+kiểm Thử ở phương trong một số tình
+huống đặc biệt hoặc phức tạp domain
+testing có thể không linh hoạt đối với
+các yêu cầu kiểm thử cụ thể
+Lý do là hiểu suất của phương pháp này
+phụ thuộc nhiều vào kiến thức và kinh
+nghiệm của người thực hiện kiểm thử việc
+chọn các lớp tương đương phải dữa trên
+thự hiệu biết sâu sắc về hệ
+thống như vậy Tôi vừa mới Diệp giới
+thiệu Xong cho các bạn về phương pháp
+domain testing Cách ứng cách áp dụng các
+kỹ thuật phân hoạch tương và phân tích
+giá trị Biên để xác định các trường hợp
+kiểm thử phân tích uu khuyết điểm của
+cái phương pháp domain testing H vọng là
+các bạn có thể áp dụng cái phương pháp
+này trong việc thiết kế kiểm thử những
+cái ứng dụng thực tế chào các
+[âm nhạc]
+bạn y

@@ -1,0 +1,347 @@
+[âm nhạc]
+Xin chào các bạn chào mừng các bạn đến
+với môn kiểm thử phần mềm tôi là Trần
+Thị Bích Hạnh giảng viên khoa công nghệ
+thông tin trường Đại học khoa tự nhiên
+Đại học Quốc gia thành phố Hồ Chí Minh
+trong bài trước chúng ta đã tìm hiểu về
+phương pháp Dom testing một kỹ thuật để
+thiết kế kiểm thử trong bài này chúng ta
+sẽ tìm hiểu kỹ hơn về kỹ thuật
+equivalence partitioning cho phép chúng
+ta sẽ xác định được các lớp tương đương
+cũng là một cái bước rất là quan trọng
+trong cái phương pháp domain
+testing để xác định các lớp tương đương
+chúng ta sẽ dựa vào những cái điều kiện
+của đầu vàng hoặc là đầu ra đối với một
+biến bất kỳ chúng ta sẽ có ít nhất được
+hai miền tương đương hay là hai lớp
+tương đương một valid equivalent class
+lớp tương đương hợp lệ bao gồm các giá
+trị mà chương trình chấp nhận và xử lý
+đúng đắn như mong đợi một là invalid
+equivalent class lớp không hợp lệ lớp
+tương đương không hợp lệ bao gồm các giá
+trị mà CH không phù hợp không đúng thỏa
+điều kiện không có đáp ứng được yêu cầu
+của cái hệ thống việc xác định các lớp
+tương đương là hortic bởi vì nó phụ
+thuộc rất nhiều vào kinh nghiệm cũng như
+là sự hiểu biết của người kiểm thử Sau
+đây tôi sẽ giới thiệu cho các bạn một số
+cái hướng dẫn dựa vào đặc trưng của điều
+kiện đầu vào để giúp cho chúng ta có thể
+xác định được
+lớp tương
+đương đầu tiên nếu như điều kiện đầu vào
+quy định phải thuộc về một miền giá trị
+nào đó ví dụ item count phải là từ 1 tới
+999 như vậy đối với cái đặc tả điều kiện
+như thế này chúng ta sẽ xác định miền
+lớp tương đương như thế nào Đầu tiên
+chúng ta sẽ xác định lớp tương đương hợp
+lệ bao gồm một lớp tương đương hợp lệ là
+từ một tới chế
+999 ngoài ra chúng ta sẽ xác định được
+thêm hai lớp tương đương không hợp lệ
+một là lớp tương đương nhỏ hơn 1 và lớp
+tương đương kế tiếp là lớp tương đương
+không hợp lệ count lớn hơn
+999 như vậy đối với điều kiện thuộc một
+miền giá trị chúng ta sẽ xác định được
+ít nhất là ba lớp tương đương trong đó
+có một lớp tương đương hợp lệ và hai lớp
+tương đương không hợp lệ nằm ngoài cái
+miện mà mình đang
+xét khi điều kiện đầu vào quy định à giá
+trị đầu vào phải thuộc một tập hợp các
+giá trị nào đó và có lý do để chúng ta
+tin rằng hệ thống hay chương trình xử lý
+đối với mỗi một cái giá trị trong cái
+tập hợp đó là khác nhau ví dụ xét một
+cái loại xe chúng ta có hệ thống cho
+phép người dùng có thể chọn các loại xe
+sau bus Truck taxi C Passenger hoặc là
+motorcycle khi người dùng chọn vào một
+loại xe hệ thống sẽ hiển thị những cái
+thông tin tương ứng và khác biệt của mỗi
+loại xe cho cho cho người dùng
+Xem thế thì đối với cái dạng đặc tả là
+thuộc một tập hợp các giá trị như vậy
+thì để xác định lớp hợp lệ chúng ta sẽ
+xác định như sau đối với từng giá trị ở
+trong miền hợp lệ chúng ta sẽ xem nó là
+một lớp tương đương như vậy thì ở trong
+cái bài Ví dụ ở trên chúng ta có năm giá
+trị là bus Truck taxic C Passenger và
+motorcycle Như vậy chúng ta sẽ có năm
+lớp tương đương và mỗi lớp tương đương
+là chỉ chứa một giá trị ở bên trong cái
+cái tập hợp mà mình đang xét ngoài ra
+đối với lớp tương đương không hợp lệ
+chúng ta sẽ có một lớp tương đương trong
+đó Ờ ở đây ví dụ chúng ta sẽ chọn một
+cái giá trị bất kỳ mà nó không nằm trong
+cái tập hợp mình đang xét Để cho để sử
+dụng là cái lớ lớp tương đương không hợp
+lệ trong trường hợp điều kiện đầu vào
+chúng ta thấy nó có yêu cầu chỉ định là
+phải thuộc Must Be một cái tình huống
+nào đó ví dụ như kí tự đầu tiên phải của
+ID phải là ký tự chữ chúng ta sẽ nhìn
+thấy cái chữ Must Be phải là vậy thì đối
+với cái cái điều kiện như vậy thì chúng
+ta sẽ có được hai miền tương đương một
+miền tương đương hợp lệ là thỏa mãn cái
+cái cái cái điều kiện Must Be
+ký tự đầu tiên là ký tự chữ và miền
+tương đương thứ hai không hợp lệ là cái
+ký tự đầu tiên không phải là khí tự
+chữ bởi vì việc xác định lớp tương đương
+là một quy trình hortic do đó trong quá
+trình phân tích phân hoạch tương đương
+thì nếu như có bất kỳ lý do gì để chúng
+ta có thể tin rằng các thành phần các
+giá trị ở trong một miền tương đương mà
+mình đang xét nó có thể được xử lý khác
+nhau bởi chương trình thì chúng ta có
+thể chia cái lớp tương đương của mình
+đang xét thành nhiều hoặc là nhiều từ
+hai hoặc là nhiều cái lớp tương đương
+con Ví dụ trong cái bài toán là tính
+tổng hai số một số có từ 1 tới hai chữ
+số thì chúng ta có thể ngoài việc là
+chia cái miền tương đương ch Hệ số là từ
+-99 cho tới 99 đó chứ là chúng ta chỉ có
+một miền tương đươ hợp lệ là -99 tới 99
+hai miền không hợp lệ là nhỏ hơn -99 và
+hoặc là lớn hơn 99 thì chúng ta có thể
+chia nhỏ ra nữa là nhỏ hơn -99 từ -99
+cho tới -1 à tức là chúng ta xét đối với
+những cái giá trị mà số âm à cái giá trị
+cái miền hợp lệ là miền 0 miền hợp lệ từ
+1 cho tới 99 là những cái số là số
+nguyên là số nguyên dương chẳng hạn và
+lớn hơn 99 chúng ta có thể chia nhỏ lên
+nữa là như vậy là chúng ta có thể có năm
+miền dịch tương
+đương
+thì để dễ hiểu hơn ha thì chúng ta sẽ áp
+dụng những cái hướng dẫn mà mình vừa mới
+Tôi vừa mới giới thiệu và những cái ví
+dụ cụ thể ở đây các bạn sẽ dễ dàng nhận
+thấy là trên thực tế đối với các điều
+kiện đầu vào của các biến đầu vào thì
+không thông thường là nó không chỉ có
+một điều kiện ví dụ như là ở đây là
+người hệ thống cho phép dùng nhập vào
+một số nguyên dương nhỏ hơn 100 ha và
+nhìn ở đây thì chúng ta sẽ phân tích là
+đối với cái đặt tả điều kiện này thì
+chúng ta sẽ có hai điều kiện con ở trong
+bên trong nó một điều kiện thứ nhất đó
+là số nguyên is an integer và điều kiện
+thứ hai là nó là số viên Dương là số
+dương từ 0 cho tới 100 là số lớn hơn 100
+và số lớn hơn 0 và nhỏ hơn 100 thì đối
+với cái điều kiện số 1 là số nguyên thì
+nó tương ứng với cái cái đặc tả với cái
+hướng dẫn là Must Be thì chúng ta sẽ
+phân tách ra được là có hai cái lớp
+tương đương một là lớp tương đương hợp
+lệ là số nguyên và một lớp tương đương
+không hợp lệ là không phải số nguyên đối
+với điều kiện C2 là một số từ 0 cho tới
+100 tới nhỏ hơn 100 lớn hơn 0 và nhỏ hơn
+100 thì chúng ta sẽ xác định được ba
+miền giá trị một miền hợp lệ là từ 0 lớn
+hơn 0 cho tới nhỏ hơn 100 một miền là
+nhỏ hơn hoặc bằng 0 và một miền là lớn
+hơn hoặc bằng 100 à Đó là hai cái miền
+lớn nhỏ hơn bằng 0 hoặc là lớn hơn bằng
+100 là ha miền không hợp lệ
+Ờ Tuy nhiên để xác định được cái miền ờ
+lớp tương đương cho cái giá trị đầu vào
+này thì không thể nào Mình tách biệt hai
+điều kiện ra mà chúng ta phải gột hai
+điều kiện lại để tạo thành một cái biến
+thả đáp ứng được cái cái cái cái điều
+kiện của đầu vào
+thì thì nguyên tắc để chúng ta có thể
+kết hợp để xác định được các lớp tương
+đương là hợp lệ hay không hợp lệ là như
+sau đối với lớp tương đương hợp lệ chúng
+ta sẽ cố gắng bao phủ tất cả những cái
+lớp tương đương hợp lệ mà mình đã phân
+tích ở từng điều kiện ha giờ chúng ở đây
+tôi sẽ có được một lớp tương đương bao
+bao phủ được càng nhiều cái cái cái lớp
+tương đương mà mình đã xác định ở từng
+cái rời từng cái điều kiện rời rạt Càng
+tốt vì cụ thểở Đây là số nguyên và lớn
+hơn nhỏ hơn 100 nến hơn 0 mà nhỏ hơn 100
+Vậy thì đây là một miền và miền này bao
+phủ hai cái miền hợp lệ là số nguyên của
+C1 ha và T lớn hơn 0 và nhỏ hơn 100 của
+cái
+C2 đối với miền không hợp lệ thì chúng
+ta sẽ xác định theo quy tắc ở một thời
+điểm chúng ta chỉ quan tâm tới một miền
+không hợp lệ duy nhất à còn lại những
+cái điều kiện khác ở một thời điểm ở đối
+với một điều kiện thì mình chỉ lấy cái
+cái cái miền không hợp lệ của một điều
+kiện thôi còn những cái điều kiện khác
+thì chúng ta sẽ sử dụng cái điều kiện
+cái cái miền hợp lệ của cái điều kiện
+khác đó để gập lại để bảo đảm là ở một
+thời điểm chúng ta chỉ quan tâm tới một
+miền không hợp lệ như vậy thì chúng ta
+sẽ khu lập được lỗi giả sử như chương
+trình trong khi khi chúng ta nhập vào dữ
+liệu không hợp lệ như vậy thì chương
+trình nếu như có lỗi xảy ra thì chúng ta
+biết được là lỗi là do cái cái miền
+không hợp lệ nào gây ra như vậy thì
+trong cái ví dụ là số nguyên lớn hơn 0
+và nhỏ hơn 100 thì cái miền không hợp lệ
+tương đương của chúng ta sẽ có là là số
+nguyên nhỏ hơn hoặc bằng 0 và là số
+nguyên lớn hoặ bằng 0 hoặc là không phải
+là số
+nguyên khi mà không phải là số nguyên
+thì nó sẽ có thể là một số bất kỳ từ
+mình không cần quan tâm tới nó
+là nó sẽ là
+nhỏ hơn bằng 0
+ha
+Rồi ví dụ Thố hai ở trong ví dụ này
+chúng ta sẽ thấy là chúng ta sẽ áp dụng
+cái cái những cái hướng dẫn của xác định
+cái lớp tương đương Tuy nhiên trong cái
+ví dụ này thì chúng ta sẽ thấy là mình
+không phải có chỉ có một điều kiện đầu
+vào hay hay là một biến đầu vào và ở đây
+chúng ta sẽ có hai biến đầu vào là x và
+y tức là tọa độ của hai cái điểm trong
+đó đặt tả Yêu cầu là cái biến x nó phải
+có giá trị là từ 3 cho tới 7 và y là giá
+trị từ 5 tới ch Đây là cái giá trị hợp
+lệ của nó như vậy thì khi mà phân tích
+xác định cái lớp tương đương đối với cái
+bài toán mà có nhiều biến thì chúng ta
+sẽ làm sao đầu tiên mình cũng sẽ xác
+định cái miền giá trị rời rạt cho từng
+biến trước ha cũng xem là n từng biến nó
+giống như một từng cái điều kiện rời rẹt
+sau đó thì chúng ta sẽ tổng hợp lại để
+tạo thành những cái lớp tương đương là
+hợp lệ hay là không hợp lệ cũng theo
+nguyên tắc đối với lớp tương đương hợp
+lệ thì sẽ bao phủ càng nhiều cái lớp hợp
+lệ càng tốt ha cụ thể ở đây chúng ta sẽ
+chỉ có một lớp hợp lệ là x từ 3 tới 7 và
+y từ 5 tới 9 đối với lớp không hợp lệ
+thì chúng ta sẽ chỉ xét những cái miền
+không hợp lệ của từng biến riêng biệt à
+cụ thể đối với biến x miền không hợp lệ
+của x là x < h 3 thì đối với biến y
+Chúng ta sẽ chọn cái giá trị y trong cái
+miền hợp lệ của nó là từ 5 đới 9 thì
+tương tự bởi vì x nó nằm trong một miền
+giá trị nó sẽ có hai cái miền không hợp
+lệ là x nh hơn 3 họ là x lớn hơn 7 thì
+trong trường hợp miền không hợp lệ phé
+miền không hợp lệ của X thì y sẽ nằm
+trong cái miền hợp lệ của Y là 5 tới 9
+ngược lại đối với y khi mình xét cái
+miền không hợp lệ của Y là y nh hn 5 thì
+X sẽ nằm trong cái miền hợp lệ của Y là
+từ 3 tới 7 à tương tự y lớn hơn 9 thì X
+sẽ là từ 3 tới
+7 như vậy thì sau khi xác định xong
+chúng ta sẽ có được đối với cái cái việc
+là nhập hai cái tọa độ xy với cái Yêu
+cầu là x từ 3 tới 7 hay y từ 5 tới 9 thì
+thì chúng ta sẽ phân tích được ba Tổng
+cộng là năm miền tương đương trong đó có
+một miền hợp lệ và bốn miền không hợp
+lệ ví dụ số ba Đây là một cái vị ví dụ
+có đặc tả hơi dài Thông thường đối với
+những cái bài toán thực tế chúng ta sẽ
+thấy theo cái dạng như thế này à chương
+trình yêu cầu chúng ta test một cái
+module cho phép người dùng nhập vào cái
+giá trị ID mới cho cái
+database thì biết rằng cái giá trị ID đó
+nó phải là bao gồm từ 3 tới 15 ký tự chữ
+và số ha và trong đó thì hai cái ký tự
+đầu tiên phải là ký tự chữ Thế thì khi
+mà mình đọc đặc tả như thế này á thì
+chúng ta phải rút trích được là từ trong
+cái đặc tả của mình có bao nhiêu biến và
+mỗi biến như vậy nó có bao nhiêu điều
+kiện thì trong đây mình sẽ nhận nhận
+thấy là người chỉ cho phép người dùng
+nhập vào một cái giá trị ID như vậy thì
+chúng ta có một biến là ID Tuy nhiên cho
+tuyến ID này nó sẽ có ba điều kiện ha
+Điều kiện thứ nhất là nó phải bao gồm kí
+tự chữ và số điều kiện thứ hai là tổng
+cái số lượng kí tự ở trong đó nó sẽ phải
+là từ 3 cho tới 15 kí tự và điều kiện
+thứ ba là hai cái ký tự đầu tiên phải là
+ký tự chữ cái này cũng ứng với l cái
+hướng dẫn khi mà mình xác định cái lớp
+tương đương thì cái điều kiện đầu tiên
+nó có cái tình huống là Must Be như vậy
+thì mình sẽ xác định được hai lớp tương
+đương là ID là có chứa ký tự chữ và số
+hoặc là cái miền tương đương không hợp
+lệ là ID không chứ tự chữ và số đối với
+điều kiện thứ hai thì nó sẽ là nằm trong
+một cái miền giá trị từ 3 tới 15 thì
+chúng ta sẽ có được ba miền tương đương
+là tổng ký tự là từ 3 tới 15 nhỏ hơn 3
+hoặc là lớn hơn
+15 Điều kiện thứ ba cũng tương tự giống
+như điều kiện một đó là điều kiện Must
+Be phải hai ký tự đầu tiên phải là hai
+ký tự chữ thì chúng ta sẽ có hai miền là
+hai ký tự đầu tiên là k K tự chữ hoặc là
+hai ký tự đầu tiên không phải là ký tự
+chữ sau khi mình xác định rời rạng như
+vậy rồi thì bước cuối cùng mình phải
+tổng hợp lại ha và xác định thêm là mình
+có bao nhiêu miền hợp lệ và bao nhiêu
+miền không hợp lệ nguyên tắc miền hợp lệ
+sẽ cố gắng bao phủ càng nhiều càng tốt
+thì ở đây thì trong trường hợp mà chúng
+ta chỉ có một biến Thôi thì chúng ta sẽ
+có một miền hợp lệ là bao gồm tất cả các
+điều kiện hợp lệ của cái cái cái biến do
+chương trình yêu cầu ID phải là K tự chữ
+số có từ 3 tới 15 ký tự và hai ký tự đầu
+tiên là hai ký tự chữ đối với miền không
+hợp lệ thì chúng ta chỉ quan tâm đế từng
+điều kiện Riêng L không hợp lệ riêng lẽ
+cụ thể là ID không phải là ký tự chữ số
+ID nhỏ hơn 3 ký tự ID nhỏ lớn hơn 15 ký
+tự và hai cái ID có hai ký tự đầu tiên
+không phải là ký tự chữ vậy chúng ta sẽ
+có n cái lớp tương đương cho cái giá trị
+ID mình nhập
+vào như vậy Tôi vừa mới giới thiệu Xong
+cho các bạn một số cái hướng dẫn dựa vào
+đặc trưng của cái điều kiện đầu vào và
+giúp cho chúng ta có thể xác định được
+những cái lớp tương
+đương H vọng là chúng ta có thể áp dụng
+được những cái hướng dẫn này qua thông
+qua những cái bài tập hay là những cái
+điều kiện thực tế khi mà chúng ta kiểm
+thử những cái ứng dụng chào các
+bạn
+[âm nhạc]
+I
