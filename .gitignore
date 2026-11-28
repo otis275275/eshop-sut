@@ -1,0 +1,5 @@
+**/node_modules/
+backend/database.sqlite
+automation/test-results/
+automation/blob-report/
+automation/playwright/.cache/

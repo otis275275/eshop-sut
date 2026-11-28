@@ -1,0 +1,48 @@
+{
+  "feature": "FR-07: Shopping Cart",
+  "baseUrl": "http://localhost:5173",
+  "products": {
+    "primary": {
+      "id": 1,
+      "name": "iPhone 15 Pro Max",
+      "price": 30000000,
+      "pricePattern": "30[.,]000[.,]000"
+    },
+    "secondary": {
+      "id": 2,
+      "name": "Samsung Galaxy S24 Ultra",
+      "price": 28000000,
+      "pricePattern": "28[.,]000[.,]000"
+    }
+  },
+  "combinedTotalPattern": "58[.,]000[.,]000",
+  "expectedColumns": [
+    "Sản phẩm",
+    "Đơn giá",
+    "Số lượng",
+    "Thành tiền",
+    "Thao tác"
+  ],
+  "expectedLabels": {
+    "emptyTitle": "Giỏ hàng của bạn đang trống",
+    "totalLabel": "Tổng cộng",
+    "continueShopping": "Tiếp tục mua sắm",
+    "addedFeedback": "Đã thêm"
+  },
+  "testCases": [
+    { "id": "TC-FR07-01", "type": "positive", "title": "Empty cart displays empty message and link to home" },
+    { "id": "TC-FR07-02", "type": "ui", "title": "Empty cart displays illustration or icon per FR-07 and FR-24" },
+    { "id": "TC-FR07-03", "type": "positive", "title": "Adding 1 product from home displays correct name, quantity and subtotal" },
+    { "id": "TC-FR07-04", "type": "positive", "title": "Adding 2 different products displays 2 rows and accurate total" },
+    { "id": "TC-FR07-05", "type": "negative", "title": "Adding the same product twice merges into 1 row with quantity 2" },
+    { "id": "TC-FR07-06", "type": "ui", "title": "Cart table headers match FR-07 specification" },
+    { "id": "TC-FR07-07", "type": "functional", "title": "Quantity column provides +/- buttons to adjust item quantity" },
+    { "id": "TC-FR07-08", "type": "functional", "title": "Clicking Delete prompts a confirmation dialog before removing item" },
+    { "id": "TC-FR07-09", "type": "ui", "title": "Cart total label must be 'Tổng cộng' per FR-07" },
+    { "id": "TC-FR07-10", "type": "ui", "title": "Continue shopping button must be labeled 'Tiếp tục mua sắm' and navigate home" },
+    { "id": "TC-FR07-11", "type": "ui", "title": "Navbar Cart link displays item quantity badge per FR-23" },
+    { "id": "TC-FR07-12", "type": "ui", "title": "Cart page includes navigation breadcrumb per FR-23" },
+    { "id": "TC-FR07-13", "type": "functional", "title": "Product detail Add to Cart works on the first click" },
+    { "id": "TC-FR07-14", "type": "negative", "title": "Unauthenticated user clicking Checkout is alerted and redirected to /login" }
+  ]
+}

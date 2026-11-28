@@ -1,0 +1,127 @@
+{
+  "feature": "FR-02: Login and Account Lockout",
+  "baseUrl": "http://localhost:5173",
+  "apiUrl": "http://localhost:3000",
+  "loginCases": [
+    {
+      "id": "TC-FR02-01",
+      "title": "Valid user login redirects to home and stores JWT token",
+      "type": "positive",
+      "email": "test@eshop.com",
+      "password": "Test1234!",
+      "expectedUrl": "/",
+      "shouldHaveToken": true
+    },
+    {
+      "id": "TC-FR02-02",
+      "title": "Valid admin login redirects to home and stores JWT token",
+      "type": "positive",
+      "email": "admin@eshop.com",
+      "password": "Admin123!",
+      "expectedUrl": "/",
+      "shouldHaveToken": true
+    },
+    {
+      "id": "TC-FR02-04",
+      "title": "Non-existent email shows error and stays on login page",
+      "type": "negative",
+      "email": "nonexistent_user_999@eshop.com",
+      "password": "WrongPassword1!",
+      "expectedUrl": "/login",
+      "shouldHaveToken": false,
+      "expectedError": "Đăng nhập thất bại"
+    }
+  ],
+  "lockoutCases": [
+    {
+      "id": "TC-FR02-05",
+      "title": "1 failed login attempt does not lock account",
+      "type": "negative",
+      "wrongAttempts": 1,
+      "wrongPassword": "WrongPassword1!",
+      "validPassword": "ValidPass1!",
+      "expectLocked": false,
+      "waitSeconds": 0
+    },
+    {
+      "id": "TC-FR02-06",
+      "title": "2 consecutive failed login attempts do not lock account (lockout requires >= 3)",
+      "type": "negative",
+      "wrongAttempts": 2,
+      "wrongPassword": "WrongPassword1!",
+      "validPassword": "ValidPass1!",
+      "expectLocked": false,
+      "waitSeconds": 0
+    },
+    {
+      "id": "TC-FR02-07",
+      "title": "3 consecutive failed login attempts lock account and reject valid password",
+      "type": "negative",
+      "wrongAttempts": 3,
+      "wrongPassword": "WrongPassword1!",
+      "validPassword": "ValidPass1!",
+      "expectLocked": true,
+      "waitSeconds": 0
+    },
+    {
+      "id": "TC-FR02-08",
+      "title": "Locked account unlocks after 30 seconds per specification",
+      "type": "boundary",
+      "wrongAttempts": 3,
+      "wrongPassword": "WrongPassword1!",
+      "validPassword": "ValidPass1!",
+      "expectLocked": false,
+      "waitSeconds": 31
+    }
+  ],
+  "validationCases": [
+    {
+      "id": "TC-FR02-09",
+      "title": "Empty email and password are blocked by required validation",
+      "type": "negative",
+      "email": "",
+      "password": "",
+      "expectedUrl": "/login"
+    },
+    {
+      "id": "TC-FR02-10",
+      "title": "Email input must use type='email' for HTML5 format validation",
+      "type": "negative",
+      "invalidEmail": "invalid-email-without-at",
+      "password": "SomePassword1!",
+      "expectedInputType": "email"
+    }
+  ],
+  "uiSpecCases": {
+    "TC-FR02-03": {
+      "id": "TC-FR02-03",
+      "title": "Authenticated request sends Authorization Bearer token to /api/users/me",
+      "email": "test@eshop.com",
+      "password": "Test1234!"
+    },
+    "TC-FR02-11": {
+      "id": "TC-FR02-11",
+      "title": "Password field must have type='password' to mask input",
+      "expectedType": "password"
+    },
+    "TC-FR02-12": {
+      "id": "TC-FR02-12",
+      "title": "Error message must appear ABOVE submit button per FR-22",
+      "email": "wrong_pos@eshop.com",
+      "password": "WrongPassword1!"
+    },
+    "TC-FR02-13": {
+      "id": "TC-FR02-13",
+      "title": "Login page heading and submit button must match Vietnamese UI spec",
+      "expectedHeading": "Đăng nhập",
+      "expectedButtonText": "Đăng nhập"
+    },
+    "TC-FR02-14": {
+      "id": "TC-FR02-14",
+      "title": "Navbar logout button after login must be labeled 'Đăng xuất' per FR-23",
+      "email": "test@eshop.com",
+      "password": "Test1234!",
+      "expectedLogoutLabel": "Đăng xuất"
+    }
+  }
+}

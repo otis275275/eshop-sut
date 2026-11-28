@@ -1,0 +1,140 @@
+{
+  "feature": "FR-12: Web Admin Access Control",
+  "adminUrl": "http://localhost:5174",
+  "apiUrl": "http://localhost:3000",
+  "accounts": {
+    "admin": {
+      "email": "admin@eshop.com",
+      "password": "Admin123!"
+    },
+    "user": {
+      "email": "test@eshop.com",
+      "password": "Test1234!"
+    }
+  },
+  "invalidToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.invalid.signature",
+  "uiCases": {
+    "TC-FR12-01": { "id": "TC-FR12-01", "title": "Admin account logs in to Web Admin and sees Dashboard" },
+    "TC-FR12-02": { "id": "TC-FR12-02", "title": "Regular user account is rejected when logging in to Web Admin" },
+    "TC-FR12-03": { "id": "TC-FR12-03", "title": "Unauthenticated visitor to Web Admin only sees Admin Login form" },
+    "TC-FR12-04": { "id": "TC-FR12-04", "title": "Forged adminToken using regular user JWT is rejected by backend and forced back to Login" }
+  },
+  "apiAccessCases": [
+    {
+      "id": "TC-FR12-05",
+      "title": "GET /api/admin/users without token returns 401",
+      "method": "GET",
+      "endpoint": "/api/admin/users",
+      "authType": "none",
+      "expectedStatus": 401
+    },
+    {
+      "id": "TC-FR12-06",
+      "title": "GET /api/admin/users with invalid token returns 403",
+      "method": "GET",
+      "endpoint": "/api/admin/users",
+      "authType": "invalid",
+      "expectedStatus": 403
+    },
+    {
+      "id": "TC-FR12-07",
+      "title": "GET /api/admin/users with regular user token must return 403",
+      "method": "GET",
+      "endpoint": "/api/admin/users",
+      "authType": "user",
+      "expectedStatus": 403
+    },
+    {
+      "id": "TC-FR12-08",
+      "title": "GET /api/admin/orders with regular user token must return 403",
+      "method": "GET",
+      "endpoint": "/api/admin/orders",
+      "authType": "user",
+      "expectedStatus": 403
+    },
+    {
+      "id": "TC-FR12-09",
+      "title": "POST /api/products without token must return 401",
+      "method": "POST",
+      "endpoint": "/api/products",
+      "authType": "none",
+      "payload": {
+        "name": "Unauthorized Test Product",
+        "price": 100000,
+        "description": "Created without auth",
+        "imageUrl": "https://placehold.co/300",
+        "category_id": 1
+      },
+      "cleanupEndpoint": "/api/products",
+      "expectedStatus": 401
+    },
+    {
+      "id": "TC-FR12-10",
+      "title": "POST /api/products with regular user token must return 403",
+      "method": "POST",
+      "endpoint": "/api/products",
+      "authType": "user",
+      "payload": {
+        "name": "User Role Test Product",
+        "price": 100000,
+        "description": "Created by user role",
+        "imageUrl": "https://placehold.co/300",
+        "category_id": 1
+      },
+      "cleanupEndpoint": "/api/products",
+      "expectedStatus": 403
+    },
+    {
+      "id": "TC-FR12-11",
+      "title": "PUT /api/products/99999 with regular user token must return 403",
+      "method": "PUT",
+      "endpoint": "/api/products/99999",
+      "authType": "user",
+      "payload": {
+        "name": "Hacked Product",
+        "price": 1,
+        "description": "Hacked",
+        "imageUrl": "https://placehold.co/300",
+        "category_id": 1
+      },
+      "expectedStatus": 403
+    },
+    {
+      "id": "TC-FR12-12",
+      "title": "DELETE /api/products/99999 with regular user token must return 403",
+      "method": "DELETE",
+      "endpoint": "/api/products/99999",
+      "authType": "user",
+      "expectedStatus": 403
+    },
+    {
+      "id": "TC-FR12-13",
+      "title": "POST /api/categories with regular user token must return 403",
+      "method": "POST",
+      "endpoint": "/api/categories",
+      "authType": "user",
+      "payload": {
+        "name": "Unauthorized Category"
+      },
+      "cleanupEndpoint": "/api/categories",
+      "expectedStatus": 403
+    },
+    {
+      "id": "TC-FR12-14",
+      "title": "POST /api/admin/coupons with regular user token must return 403",
+      "method": "POST",
+      "endpoint": "/api/admin/coupons",
+      "authType": "user",
+      "payload": {
+        "code": "HACKCOUPON",
+        "type": "fixed",
+        "discount_value": 50000,
+        "min_order_amount": 0,
+        "expired_at": "2099-12-31",
+        "max_uses_per_user": 1
+      },
+      "cleanupEndpoint": "/api/admin/coupons",
+      "expectedStatus": 403
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "eshop-sut-automation",
+  "version": "1.0.0",
+  "description": "Playwright E2E & API automation tests for EShop SUT (FR-02, FR-07, FR-12)",
+  "scripts": {
+    "test": "node scripts/run-tests.js",
+    "test:fr02": "node scripts/run-tests.js tests/fr02-login.spec.ts",
+    "test:fr07": "node scripts/run-tests.js tests/fr07-cart.spec.ts",
+    "test:fr12": "node scripts/run-tests.js tests/fr12-admin-access.spec.ts",
+    "report": "playwright show-report ../report/playwright-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.50.0"
+  }
+}
