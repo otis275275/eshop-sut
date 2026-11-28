@@ -1,3 +1,7 @@
+/**
+ * FR-12: Web Admin Access Control (Data-Driven Multi-Browser Suite)
+ * Covers Admin UI login/rejection on :5174 and backend JWT + role='admin' RBAC enforcement on :3000.
+ */
 import { test, expect } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
