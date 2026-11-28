@@ -72,7 +72,7 @@ test.describe('FR-07: Shopping Cart', () => {
     await goToCartViaNavbar(page);
 
     const rows = page.locator('tbody tr');
-    await expect(rows).toHaveCount(1);
+    await expect(rows, 'Duplicate product should merge into 1 row').toHaveCount(1);
     await expect(rows.first().locator('td').nth(2)).toContainText('2');
   });
 
