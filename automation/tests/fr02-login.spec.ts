@@ -94,12 +94,12 @@ test.describe('FR-02: Login and Account Lockout', () => {
       const finalRes = await finalLoginPromise;
 
       if (tc.expectLocked) {
-        expect(finalRes.status()).toBe(403);
+        expect(finalRes.status(), 'Account should be locked with HTTP 403 after 3 failed attempts').toBe(403);
         const body = await finalRes.json();
         expect(body.error).toContain('khóa');
         await expect(page).toHaveURL(/\/login/);
       } else {
-        expect(finalRes.status()).toBe(200);
+        expect(finalRes.status(), 'Account should remain unlocked and login with HTTP 200').toBe(200);
         await expect(page).toHaveURL('/');
       }
     });
