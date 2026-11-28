@@ -119,7 +119,7 @@ test.describe('FR-12: Web Admin Access Control', () => {
         }
       }
 
-      expect(response.status()).toBe(tc.expectedStatus);
+      expect(response.status(), `${tc.method} ${tc.endpoint} should enforce access control`).toBe(tc.expectedStatus);
     });
   }
 });
