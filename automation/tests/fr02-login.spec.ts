@@ -1,3 +1,7 @@
+/**
+ * FR-02: Login and Account Lockout (Data-Driven Multi-Browser Suite)
+ * Covers positive login, JWT Bearer header, lockout thresholds, 30s unlock, and FR-21/22/23 UI specs.
+ */
 import { test, expect } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
