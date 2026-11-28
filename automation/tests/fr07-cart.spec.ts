@@ -1,3 +1,7 @@
+/**
+ * FR-07: Shopping Cart (Data-Driven Multi-Browser Suite)
+ * Covers empty state, adding/merging items, quantity controls, delete confirmation, and FR-23/24 UI specs.
+ */
 import { test, expect } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
